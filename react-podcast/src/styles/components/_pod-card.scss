@@ -1,0 +1,54 @@
+a {
+  color: red;
+  text-decoration: none;
+}
+
+a:hover {
+  color: black;
+}
+
+.pod__card {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-shadow: 7px 6px 18px -8px rgba(0, 0, 0, 0.75);
+  height: 150px;
+  width: 225px;
+  margin-top: 60px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.pod__card_author {
+  font-size: small;
+}
+
+.pod__card_img {
+  border-radius: 100%;
+  height: 120px;
+  width: 120px;
+  overflow: hidden;
+  margin-top: -60px;
+}
+
+.pod__card_img img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.pod__card_info {
+  display: flex;
+  flex-direction: column;
+  word-wrap: break-word;
+  max-width: 225px;
+}
+
+.pod__card_tittle {
+  font-size: small;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
