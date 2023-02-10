@@ -1,53 +1,54 @@
 a {
   color: rgb(180, 178, 178);
   text-decoration: none;
-}
-
-a:hover {
+  }
+  
+  a:hover {
   color: black;
-}
-
-.pod__card {
+  }
+  
+  .pod__card {
+  align-items: center;
   border: 1px solid #ddd;
-  border-radius: 6px;
-  box-shadow: 7px 6px 18px -8px rgba(0, 0, 0, 0.75);
-  height: 150px;
- 
-  margin-top: 60px;
-  text-align: center;
+  border-radius: 0.3em;
+  box-shadow: 0.4em 0.3em 0.5em -0.5em rgba(0, 0, 0, 0.75);
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: space-evenly;
-}
-
-.pod__card_author {
-  font-size: small;
-}
-
-.pod__card_img {
+  height: 12.5em;
+  max-width: 21em;
+  margin-top: 3em;
+  text-align: center;
+  }
+  
+  .pod__card_author {
+  font-size: 0.8m;
+  margin-top: 0.6em;
+  }
+  
+  .pod__card_img {
   border-radius: 100%;
-  height: 120px;
-  width: 120px;
+  height: 11.25em;
+  margin-top: -3.75em;
   overflow: hidden;
-  margin-top: -60px;
-}
-
-.pod__card_img img {
+  width: 11.25em;
+  }
+  
+  .pod__card_img img {
   height: 100%;
   width: 100%;
   object-fit: cover;
-}
-
-.pod__card_info {
+  }
+  
+  .pod__card_info {
   display: flex;
   flex-direction: column;
   word-wrap: break-word;
-  max-width: 225px;
-}
-
-.pod__card_tittle {
-  font-size: small;
+  max-width: 14em;
+  }
+  
+  .pod__card_tittle {
+  font-size: 0.8em;
   font-weight: bold;
   text-transform: uppercase;
-}
+  }

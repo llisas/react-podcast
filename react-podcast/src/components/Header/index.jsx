@@ -1,9 +1,9 @@
 import React from "react";
-
+import { Link } from 'react-router-dom';
 const Header = () => {
   return (
     <>
-      <div className="header__container">Podcaster</div>
+      <Link className="header__container" to="/">Podcaster</Link>
       <hr />
     </>
   );

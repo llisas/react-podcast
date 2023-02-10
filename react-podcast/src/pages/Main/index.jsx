@@ -2,10 +2,10 @@ import { Link } from "react-router-dom";
 import PodCastList from "../../components/PodCastList";
 import Spinner from "../../components/Spinner";
 import Searcher from "../../components/Searcher";
+import SearcherChipResult from "../../components/SearcherChipResult";
 import { useFetchPodcasts } from "../../hooks/useFetchPodcast";
 
 const Main = () => {
-  
   const [podcast, setPodcast] = useFetchPodcasts();
 
   const onSearcherHandler = (text) => {
@@ -21,26 +21,29 @@ const Main = () => {
 
   return (
     <>
-      <Searcher onSearcher={onSearcherHandler}></Searcher>
-
-      <div  className="main__grid_container ">
-      {podcast &&
-        podcast.map((item) => (
-          <Link
-            key={item.id.attributes["im:id"]}
-            to={`podcast/${item.id.attributes["im:id"]}`}
-          >
-            <PodCastList 
-              author={item["im:artist"].label}
-              id={item.id.attributes["im:id"]}
-              img={item["im:image"][2].label}
-              tittle={item["im:name"].label}
-            ></PodCastList>
-          </Link>
-        
-        ))}
-        </div>
-
+        {podcast && (
+          <div>
+            <div className="header__searcher_container">
+              <SearcherChipResult result={podcast.length}></SearcherChipResult>
+              <Searcher onSearcher={onSearcherHandler}></Searcher>
+            </div>
+            <div className="main__grid_container ">
+              {podcast.map((item) => (
+                <Link
+                  key={item.id.attributes["im:id"]}
+                  to={`podcast/${item.id.attributes["im:id"]}`}
+                >
+                  <PodCastList
+                    author={item["im:artist"].label}
+                    id={item.id.attributes["im:id"]}
+                    img={item["im:image"][2].label}
+                    tittle={item["im:name"].label}
+                  ></PodCastList>
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
     </>
   );
 };
