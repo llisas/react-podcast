@@ -23,20 +23,23 @@ const Main = () => {
     <>
       <Searcher onSearcher={onSearcherHandler}></Searcher>
 
+      <div  className="main__grid_container ">
       {podcast &&
         podcast.map((item) => (
           <Link
             key={item.id.attributes["im:id"]}
             to={`podcast/${item.id.attributes["im:id"]}`}
           >
-            <PodCastList
+            <PodCastList 
               author={item["im:artist"].label}
               id={item.id.attributes["im:id"]}
               img={item["im:image"][2].label}
               tittle={item["im:name"].label}
             ></PodCastList>
           </Link>
+        
         ))}
+        </div>
 
     </>
   );

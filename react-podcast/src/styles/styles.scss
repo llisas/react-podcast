@@ -3,5 +3,10 @@
 @import './base/base';
 
 //Components
-@import './components/pod-card';
+@import './components/header'
+;@import './components/pod-card';
 @import  './components/spinner';
+@import './components/details-grid';
+
+//Pages
+@import './pages/main'

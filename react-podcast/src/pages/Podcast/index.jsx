@@ -1,11 +1,15 @@
-import React from 'react'
-import { useParams } from 'react-router-dom'
+import React from "react";
+import { useParams } from "react-router-dom";
+import { useFetchPodcastDetails } from "../../hooks/useFetchPodcastDetails";
+import PodCastsDetail from "../../components/PodCastsDetail";
 
-
- const Podcast = () => {
-  let { id } = useParams();
+const Podcast = () => {
+  const { id } = useParams();
+  const [podcasts] = useFetchPodcastDetails(id);
   return (
-    <div>HELLO FROM PODACAST {id}</div>
-  )
-}
-export default Podcast
+    <>
+      <PodCastsDetail podcastList={podcasts}></PodCastsDetail>
+    </>
+  );
+};
+export default Podcast;

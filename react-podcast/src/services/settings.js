@@ -1,2 +1,5 @@
-export const BASE_URL =
-  "https://itunes.apple.com/us/rss/toppodcasts/limit=100/genre=1310/json";
+export const BASE_URL ="https://itunes.apple.com";
+export const CORS = "https://cors-anywhere.herokuapp.com"
+
+
+
