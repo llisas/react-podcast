@@ -1,4 +1,19 @@
+.details__container {
+  align-items: start;
+  align-content: space-around;
+  display: flex;
+  justify-content: space-around;
+  justify-items: start;
+  padding: 3em;
+  grid-template-columns:  30% 60%;
+}
+
+.details__episodes-container{
+  margin-left: 50px;
+  max-width: 60%;
+}
 .details__grid-container {
+  background-color: white;
   margin: 20px auto;
   text-align: right;
   box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 34%);
@@ -42,7 +57,7 @@
 }
 
 .details__episodes {
-  height: 40px;
+  height: 2.5em;
   margin: 20px auto;
   padding-left: 15px;
   display: flex;
