@@ -44,9 +44,9 @@ const PodCastsDetail = () => {
                     return (
                       <Link
                         to={`/podcast/${podcastId}/episode/${trackId}`}
+                        key={trackId}
                       >
                         <PodCastsDetailGrid
-                          key={trackId}
                           id={trackId}
                           tittle={trackName}
                           date={dateConverter(releaseDate)}

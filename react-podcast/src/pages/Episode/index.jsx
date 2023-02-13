@@ -9,12 +9,12 @@ const Episode = () => {
   const { podcastId } = useParams();
   const { episodeId } = useParams();
 
-  const [xmlData ] = useGetPodcastEpisode(podcastId);
+  const [xmlData] = useGetPodcastEpisode(podcastId);
   const [xmlPlayer] = useGetEpisodeForPlayer(podcastId, episodeId);
 
   return (
     <>
-      {xmlData && (
+      {xmlData ? (
         <div className="episode__container">
           <div className="episode__podcatsDetailInfo">
             <PodCastsDetailInfo
@@ -22,7 +22,7 @@ const Episode = () => {
               description={xmlData.description}
               tittle={xmlData.title}
               author={xmlData.author}
-              hasBackPage = {true}
+              hasBackPage={true}
             ></PodCastsDetailInfo>
           </div>
 
@@ -36,6 +36,16 @@ const Episode = () => {
             </div>
           )}
         </div>
+      ) : (
+        <div>The test requieres to save the podcastś data in local , but with a massive podcast list we dont have enought space left in our local Storage.
+          You can face this error in your console like:
+          <h4>error saving data => DOMException: Failed to execute 'setItem' on 'Storage': Setting the value of 'podcast_xxxxxxxx' exceeded the quota</h4>
+          
+          We have two options in that case:
+          <p>Saving with Web SQL Database over SQLITE</p>
+          <p>Call tha api and paint data directly not saving data in local </p>
+        </div>
+       
       )}
     </>
   );

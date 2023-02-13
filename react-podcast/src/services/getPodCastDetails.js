@@ -35,7 +35,6 @@ const fecthPodCastDetailsXml = (url, id) => {
           } catch (error) {
             console.error("error saving data=>", error);
           }
-
           resolve(xmlText);
         }
       };

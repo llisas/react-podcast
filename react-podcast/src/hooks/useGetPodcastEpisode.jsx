@@ -10,9 +10,13 @@ export const useGetPodcastEpisode = (podcastId) => {
     const cachedPodcast = localStorage.getItem(`podcast_${podcastId}`);
     const podcastDetails = cachedPodcast ? JSON.parse(cachedPodcast) : null;
     let parser = new DOMParser();
-    let xmlDoc = parser.parseFromString(podcastDetails.details, "text/xml");
-    const xmlDataCompose = xmlHeaderDataComposer(xmlDoc);
-    setXmlData(xmlDataCompose);
+    try {
+      let xmlDoc = parser.parseFromString(podcastDetails.details, "text/xml");
+      const xmlDataCompose = xmlHeaderDataComposer(xmlDoc);
+      setXmlData(xmlDataCompose);
+    } catch (error) {
+      setXmlData(null);
+    }
   }, [podcastId]);
 
   return [xmlData, setXmlData];
