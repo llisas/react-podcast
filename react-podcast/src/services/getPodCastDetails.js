@@ -18,7 +18,6 @@ const fecthPodCastDetailsXml = (url, id) => {
     try {
       const xhr = new XMLHttpRequest();
       xhr.open("GET", `${CORS}/${url}`, false);
-      xhr.setRequestHeader("origin", "*");
       xhr.setRequestHeader("x-requested-with", "XMLHttpRequest");
       xhr.onreadystatechange = function () {
         if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {

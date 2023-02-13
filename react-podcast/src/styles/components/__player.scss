@@ -1,0 +1,18 @@
+.__player_container{
+    box-shadow: 0.3em 0.3em 0.3em rgba(0, 0, 0, 0.3);
+    border: 0.125em solid rgb(219, 219, 219);
+    flex-direction: column;
+    padding: 2em;
+}
+
+.__player_text_bold{
+    font-weight: bold;
+}
+
+.__player_tex_italic{
+    font-style: italic;
+}
+
+.__player_podcast {
+    margin-top: -3em;
+}
