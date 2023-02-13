@@ -1,14 +1,24 @@
-import React from "react";
+import React, {useState,useEffect}from "react";
 import PodCastsDetailInfo from "../../components/PodCastsDetailInfo";
 import PodCastsDetailGrid from "../../components/PodCastsDetailGrid";
 import { useFetchPodcastDetails } from "../../hooks/useFetchPodcastDetails";
 import { useParams } from "react-router-dom";
 import { dateConverter } from "../../helpers/time";
 import { Link } from "react-router-dom";
+import Spinner from "../../components/Spinner";
 
 const PodCastsDetail = () => {
   const { podcastId } = useParams();
+  const [isLoading, setIsLoading] = useState(true);
   const [podcastList, setPoscastList] = useFetchPodcastDetails(podcastId);
+
+  useEffect(() => {
+    if (podcastList) {
+      setIsLoading(false);
+    }
+  }, [podcastList]);
+
+  if (isLoading) return <Spinner />;
 
   if (podcastList)
     return (
