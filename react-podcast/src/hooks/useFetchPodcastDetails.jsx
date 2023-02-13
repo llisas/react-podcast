@@ -1,31 +1,31 @@
 import { useState, useEffect } from "react";
 import { fecthPodCastDetails } from "../services/getPodCastDetails";
-import { xmlDataComposer } from "../helpers/xmlAdapter";
 
 export const useFetchPodcastDetails = (id) => {
   const [podcasts, setPodcasts] = useState(null);
 
-     
   useEffect(() => {
     const cachedPodcast = localStorage.getItem(`podcast_${id}`);
+
     const podcastDetails = cachedPodcast ? JSON.parse(cachedPodcast) : null;
     const oneDay = 24 * 60 * 60 * 1000;
 
-    async function getPodCastDetails() {
+    async function getPodcastDetails() {
       const response = await fecthPodCastDetails(id);
-      let parser = new DOMParser();
-      let xmlDoc = parser.parseFromString(response, "text/xml");
-      setPodcasts(xmlDataComposer(xmlDoc));
+      setPodcasts(response);
+      localStorage.setItem(
+        `podcast_${id}`,
+        JSON.stringify({
+          data: response,
+          timestamp: Date.now(),
+        })
+      );
     }
 
     if (!podcastDetails || Date.now() - podcastDetails.timestamp > oneDay) {
-      getPodCastDetails();
+      getPodcastDetails();
     } else {
-      const xmlDoc = new DOMParser().parseFromString(
-        podcastDetails.details,
-        "text/xml"
-      );
-      setPodcasts(xmlDataComposer(xmlDoc));
+      setPodcasts(podcastDetails.data);
     }
   }, [id]);
 

@@ -1,16 +1,21 @@
-import React, {useState,useEffect}from "react";
+import React, { useState, useEffect, useContext } from "react";
 import PodCastsDetailInfo from "../../components/PodCastsDetailInfo";
 import PodCastsDetailGrid from "../../components/PodCastsDetailGrid";
 import { useFetchPodcastDetails } from "../../hooks/useFetchPodcastDetails";
 import { useParams } from "react-router-dom";
-import { dateConverter } from "../../helpers/time";
+import { dateConverter, durationConverter } from "../../helpers/time";
 import { Link } from "react-router-dom";
 import Spinner from "../../components/Spinner";
+import { PodcastSelectedContext } from "../../context/PodcastSelectedContext";
+import { EpisodeSelectedContext } from "../../context/EpisodeSelectedContext";
 
 const PodCastsDetail = () => {
+  const { state } = useContext(PodcastSelectedContext);
+  const { setEpisode } = useContext(EpisodeSelectedContext);
   const { podcastId } = useParams();
   const [isLoading, setIsLoading] = useState(true);
-  const [podcastList, setPoscastList] = useFetchPodcastDetails(podcastId);
+  const [podcastList] = useFetchPodcastDetails(podcastId);
+  const { podcastSelected } = state;
 
   useEffect(() => {
     if (podcastList) {
@@ -18,7 +23,13 @@ const PodCastsDetail = () => {
     }
   }, [podcastList]);
 
+
   if (isLoading) return <Spinner />;
+  
+  const episodeSelectedHanler = (id) => {
+    const episodeFound = podcastList.find((episode) => episode.trackId === id);
+    setEpisode({ episodeSelected: episodeFound });
+  };
 
   if (podcastList)
     return (
@@ -27,11 +38,11 @@ const PodCastsDetail = () => {
           {podcastList && (
             <div>
               <PodCastsDetailInfo
-                img={podcastList.image}
-                description={podcastList.description}
-                tittle={podcastList.title}
-                author={podcastList.author}
-                hasBackPage = {false}
+                img={podcastList[0].artworkUrl600}
+                description={podcastSelected.summary?.label}
+                tittle={podcastList[0].trackName}
+                author={podcastList[0].artistName}
+                hasBackPage={false}
               ></PodCastsDetailInfo>
             </div>
           )}
@@ -39,7 +50,8 @@ const PodCastsDetail = () => {
           {podcastList && (
             <div className="details__episodes-container">
               <div className="details__episodes">
-                <h3> Episodes: {podcastList.itemList.length}</h3>
+                <h3> Episodes: {podcastList
+                  .filter(({ episodeUrl }) => episodeUrl).length}</h3>
               </div>
               <div className="details__grid-container details__grid_header">
                 <div className="details__grid details__no-hover">
@@ -49,23 +61,24 @@ const PodCastsDetail = () => {
                     Duration
                   </div>
                 </div>
-                {podcastList.itemList.map(
-                  ({ trackId, trackName, releaseDate, trackDuration }) => {
-                    return (
+                {podcastList
+                  .filter(({ episodeUrl }) => episodeUrl)
+                  .map(
+                    ({ trackId, trackName, releaseDate, trackTimeMillis }) => (
                       <Link
                         to={`/podcast/${podcastId}/episode/${trackId}`}
                         key={trackId}
+                        onClick={() => episodeSelectedHanler(trackId)}
                       >
                         <PodCastsDetailGrid
                           id={trackId}
                           tittle={trackName}
                           date={dateConverter(releaseDate)}
-                          duration={trackDuration}
+                          duration={durationConverter(trackTimeMillis)}
                         ></PodCastsDetailGrid>
                       </Link>
-                    );
-                  }
-                )}
+                    )
+                  )}
               </div>
             </div>
           )}
