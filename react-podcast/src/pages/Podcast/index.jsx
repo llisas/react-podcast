@@ -21,6 +21,7 @@ const PodCastsDetail = () => {
                 description={podcastList.description}
                 tittle={podcastList.title}
                 author={podcastList.author}
+                hasBackPage = {false}
               ></PodCastsDetailInfo>
             </div>
           )}

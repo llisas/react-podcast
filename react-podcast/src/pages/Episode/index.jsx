@@ -22,6 +22,7 @@ const Episode = () => {
               description={xmlData.description}
               tittle={xmlData.title}
               author={xmlData.author}
+              hasBackPage = {true}
             ></PodCastsDetailInfo>
           </div>
 
