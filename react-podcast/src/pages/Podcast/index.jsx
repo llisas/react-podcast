@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, {useContext } from "react";
 import PodCastsDetailInfo from "../../components/PodCastsDetailInfo";
 import PodCastsDetailGrid from "../../components/PodCastsDetailGrid";
 import { useFetchPodcastDetails } from "../../hooks/useFetchPodcastDetails";
@@ -13,24 +13,16 @@ const PodCastsDetail = () => {
   const { state } = useContext(PodcastSelectedContext);
   const { setEpisode } = useContext(EpisodeSelectedContext);
   const { podcastId } = useParams();
-  const [isLoading, setIsLoading] = useState(true);
-  const [podcastList] = useFetchPodcastDetails(podcastId);
+  const [podcastList, isLoading] = useFetchPodcastDetails(podcastId);
   const { podcastSelected } = state;
 
-  useEffect(() => {
-    if (podcastList) {
-      setIsLoading(false);
-    }
-  }, [podcastList]);
-
-
-  if (isLoading) return <Spinner />;
-  
   const episodeSelectedHanler = (id) => {
     const episodeFound = podcastList.find((episode) => episode.trackId === id);
     setEpisode({ episodeSelected: episodeFound });
   };
 
+
+  if (isLoading) return <Spinner />;
   if (podcastList)
     return (
       <>

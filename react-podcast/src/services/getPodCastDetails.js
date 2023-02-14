@@ -7,7 +7,7 @@ export const fecthPodCastDetails = async (id) => {
     const feedUrl = responseJson.results;
     return feedUrl;
   } catch (error) {
-    console.error(error);
+    console.error("error fetching data =>",error);
   }
 };
 

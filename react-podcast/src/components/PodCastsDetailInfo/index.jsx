@@ -35,11 +35,16 @@ const PodCastsDetailInfo = ({
         {tittle}
 
         {hasBackPage ? (
-         <p onClick={backButton} className="details-info__cursive details-info__pointer"> by {author}</p>
-      ) : (
-        <p className="details-info__cursive"> by {author}</p>
-      )}
-       
+          <p
+            onClick={backButton}
+            className="details-info__cursive details-info__pointer"
+          >
+            {" "}
+            by {author}
+          </p>
+        ) : (
+          <p className="details-info__cursive"> by {author}</p>
+        )}
       </div>
 
       <hr />
