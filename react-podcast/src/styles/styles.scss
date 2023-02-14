@@ -1,13 +1,14 @@
 //Base
 @import './base/settings';
 @import './base/base';
-
 //Components
 @import './components/header';
 @import './components/pod-card';
 @import  './components/spinner';
 @import './components/details-grid';
 @import './components/details-info';
-
+@import './components/_player';
 //Pages
 @import './pages/main';
+@import './pages/podcast';
+@import './pages/_episode';
