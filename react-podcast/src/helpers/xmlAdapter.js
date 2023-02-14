@@ -1,3 +1,5 @@
+//Just used in the Xml podacaster version
+
 export const extractHeaderData = (xmlDoc) => {
   const title = xmlDoc.querySelector("title").textContent;
   const description = xmlDoc.querySelector("description").textContent;

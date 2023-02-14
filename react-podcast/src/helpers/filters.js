@@ -1,5 +1,4 @@
-export const filterPodcastByName = (text) =>{
-    const allPodcast = JSON.parse(window.localStorage.getItem("podcast"));
+export const filterPodcastByName = (allPodcast, text) =>{
     const podcastFilter = allPodcast.filter((item) => {
       return (
         item["im:name"].label.toLowerCase().includes(text.toLowerCase()) ||

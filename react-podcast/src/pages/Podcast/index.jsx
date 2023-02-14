@@ -1,4 +1,4 @@
-import React, {useContext } from "react";
+import React, { useContext } from "react";
 import PodCastsDetailInfo from "../../components/PodCastsDetailInfo";
 import PodCastsDetailGrid from "../../components/PodCastsDetailGrid";
 import { useFetchPodcastDetails } from "../../hooks/useFetchPodcastDetails";
@@ -15,13 +15,18 @@ const PodCastsDetail = () => {
   const { podcastId } = useParams();
   const [podcastList, isLoading] = useFetchPodcastDetails(podcastId);
   const { podcastSelected } = state;
+  const allPodcast = JSON.parse(window.localStorage.getItem("podcast"));
 
   const episodeSelectedHanler = (id) => {
     const episodeFound = podcastList.find((episode) => episode.trackId === id);
     setEpisode({ episodeSelected: episodeFound });
   };
 
+  const getDateFromLocalStorage = () => {
 
+  };
+
+  
   if (isLoading) return <Spinner />;
   if (podcastList)
     return (
@@ -42,8 +47,11 @@ const PodCastsDetail = () => {
           {podcastList && (
             <div className="details__episodes-container">
               <div className="details__episodes">
-                <h3> Episodes: {podcastList
-                  .filter(({ episodeUrl }) => episodeUrl).length}</h3>
+                <h3>
+                  {" "}
+                  Episodes:{" "}
+                  {podcastList.filter(({ episodeUrl }) => episodeUrl).length}
+                </h3>
               </div>
               <div className="details__grid-container details__grid_header">
                 <div className="details__grid details__no-hover">
