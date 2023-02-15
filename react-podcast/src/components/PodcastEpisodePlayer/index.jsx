@@ -1,7 +1,6 @@
 import React from "react";
 
 const PodcastEpisodePlayer = ({ tittle, description, urlPlayer }) => {
-  //TODO
   return (
     <div className="__player_container">
       <div className="__player_text_bold"> {tittle}</div>
