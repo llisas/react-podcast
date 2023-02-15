@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { fecthPodCastDetails } from "../services/getPodCastDetails";
+import { getPodCastDetails } from "../services/getPodCastDetails";
 import { ONE_DAY } from "../services/settings";
 
 export const useFetchPodcastDetails = (id) => {
@@ -11,14 +11,14 @@ export const useFetchPodcastDetails = (id) => {
     const cachedPodcast = localStorage.getItem(`podcast_${id}`);
     const podcastDetails = cachedPodcast ? JSON.parse(cachedPodcast) : null;
 
-    async function getPodcastDetails() {
-      const response = await fecthPodCastDetails(id);
+    async function fetchPodcastDetails() {
+      const response = await getPodCastDetails(id);
       setPodcasts(response);
       saveInLocalStorage(response, id);
       setIsLoading(false);
     }
     if (!podcastDetails || Date.now() - podcastDetails.timestamp > ONE_DAY) {
-      getPodcastDetails();
+      fetchPodcastDetails();
     } else {
       setPodcasts(podcastDetails.data);
       setIsLoading(false);

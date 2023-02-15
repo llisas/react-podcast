@@ -1,5 +1,5 @@
 import { filterPodcastByName } from "../../helpers/filters";
-const { allPodcast } = require('./mocks/index');
+const { allPodcast } = require('../mocks/index');
 describe("filterPodcastByName", () => {
  
   test("returns allPodcast when text is empty", () => {

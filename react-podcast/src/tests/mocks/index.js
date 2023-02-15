@@ -4,3 +4,4 @@ export const allPodcast = [
     { 'im:name': { label: 'The Daily' }, 'im:artist': { label: 'The New York Times' } }
   ];
   
+export const podcastID = '1535809341';

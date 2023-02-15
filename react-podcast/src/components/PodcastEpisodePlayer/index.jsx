@@ -8,7 +8,7 @@ const PodcastEpisodePlayer = ({ tittle, description, urlPlayer }) => {
         className="__player_tex_italic"
         dangerouslySetInnerHTML={{ __html: description }}
       />
-      <audio controls className="__player_podcast">
+      <audio name="audio-source"  controls className="__player_podcast">
         <source src={urlPlayer} type="audio/mp3" />
       </audio>
     </div>

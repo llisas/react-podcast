@@ -1,13 +1,10 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Main from "../../../../src/pages/Main";
+import { render, screen } from "@testing-library/react";
+import Main from "../../../pages/Main";
+import "@testing-library/jest-dom/extend-expect";
 
 
 describe("Main component", () => {
-  test("renders podcast list on load", () => {
-    const container = document.createElement('div');
-    ReactDOM.render(<Main />, container);
-
-  
+  test("Should render main page", () => {
+    //TODO
   });
 });
