@@ -9,9 +9,7 @@ import SearcherChipResult from "../../components/SearcherChipResult";
 
 const Main = () => {
   const [podcast, setPodcast] = useFetchPodcasts();
-  
   const allPodcast = JSON.parse(window.localStorage.getItem("podcast"));
-
   const onSearcherHandler = (text) => {
     setPodcast(filterPodcastByName(allPodcast, text));
   };
