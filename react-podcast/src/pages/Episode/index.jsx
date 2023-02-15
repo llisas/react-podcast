@@ -1,33 +1,40 @@
-import React, { useContext } from "react";
+import React from "react";
+import { useParams } from "react-router-dom";
 import PodCastsDetailInfo from "../../components/PodCastsDetailInfo";
 import PodcastEpisodePlayer from "../../components/PodcastEpisodePlayer";
-import { EpisodeSelectedContext } from "../../context/EpisodeSelectedContext";
+import { useGetLocalPodCast } from "../../hooks/useGetLocalPodCast";
+import { useGetLocalEpisode } from "../../hooks/useGetLocalEpisode";
+
 const Episode = () => {
-  const { episode } = useContext(EpisodeSelectedContext);
-  const { episodeSelected } = episode;
+  const { podcastId, episodeId } = useParams();
+
+  const [podcast] = useGetLocalPodCast(podcastId);
+  const [episodePodcast] = useGetLocalEpisode(podcastId, episodeId);
+
   return (
     <>
-      {
+      {podcast && (
         <div className="episode__container">
           <div className="episode__podcatsDetailInfo">
-            <PodCastsDetailInfo 
-              img={episodeSelected.artworkUrl600}
-              description={episodeSelected.description}
-              tittle={episodeSelected.trackName}
-              author={episodeSelected.collectionName}
+            <PodCastsDetailInfo
+              img={podcast["im:image"][2].label}
+              description={podcast.summary?.label}
+              tittle={podcast.title.label}
+              author={podcast["im:artist"].label}
               hasBackPage={true}
-            ></PodCastsDetailInfo>
+            />
           </div>
-
-          <div className="episode__podcastEpisodePlayer">
-            <PodcastEpisodePlayer
-              tittle={episodeSelected.trackName}
-              description={episodeSelected.shortDescription}
-              urlPlayer={episodeSelected.episodeUrl}
-            ></PodcastEpisodePlayer>
-          </div>
+          {episodePodcast && (
+            <div className="episode__podcastEpisodePlayer">
+              <PodcastEpisodePlayer
+                tittle={episodePodcast.trackName}
+                description={episodePodcast.shortDescription}
+                urlPlayer={episodePodcast.episodeUrl}
+              />
+            </div>
+          )}
         </div>
-      }
+      )}
     </>
   );
 };

@@ -6,7 +6,7 @@
   box-shadow: 0.3em 0.3em 0.3em rgba(0, 0, 0, 0.3);
   color:$text_color_base;
   margin: 1.2em auto;
-  max-width: 25em;
+  max-width: 22em;
   padding: 1em;
 }
 
@@ -21,7 +21,6 @@
 .details-info__description{
   margin-top: 1em;
   text-align: left;
-
 }
 
 .details-info__bold{
@@ -41,9 +40,9 @@
 
 .details-info__container-image {
   border-radius: 1em;
-  height: 25em;
-  margin-bottom: 1em;
-  width: 25em;
+  height: 15em;
+  padding: 3.3em;
+  width: 15em;
 }
 
 

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { fecthPodCastDetails } from "../services/getPodCastDetails";
 import { ONE_DAY } from "../services/settings";
+
 export const useFetchPodcastDetails = (id) => {
   const [podcasts, setPodcasts] = useState(null);
   const [isLoading, setIsLoading] = useState(true);

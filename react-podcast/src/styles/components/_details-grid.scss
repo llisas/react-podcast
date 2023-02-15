@@ -2,29 +2,30 @@
   align-items: flex-start;
   align-content: space-around;
   display: flex;
+  grid-template-columns: 30% 60%;
   justify-content: space-around;
   justify-items: start;
   padding: 3em;
-  grid-template-columns:  30% 60%;
 }
 
-.details__episodes-container{
+.details__episodes-container {
   margin-left: 50px;
   max-width: 60%;
 }
+
 .details__grid-container {
   background-color: white;
+  box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 34%);
   margin: 20px auto;
   text-align: right;
-  box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 34%);
 }
 
 .details__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
   border-bottom: 1px solid #ccc;
-  line-height: 1.5em;
+  display: grid;
   font-size: 14px;
+  grid-template-columns: repeat(3, 1fr);
+  line-height: 1.5em;
 }
 
 .details__grid_header {
@@ -52,19 +53,19 @@
 .details__duration {
   grid-column: 3 / 4;
   grid-row: 1 / 2;
-  text-align: center;
   padding: 1rem 1rem;
+  text-align: center;
 }
 
 .details__episodes {
+  align-items: center;
+  box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 10%);
+  display: flex;
   height: 2.5em;
+  justify-content: flex-start;
   margin: 20px auto;
   padding-left: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
   text-align: center;
-  box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 10%);
 }
 .details__bold {
   font-weight: bold;

@@ -1,12 +1,20 @@
-import React from "react";
-import { Link } from 'react-router-dom';
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
+import { AppContext } from "../../context/AppContext";
+
 const Header = () => {
+  const { loading } = useContext(AppContext);
+  // const loading  =true;
   return (
     <>
-      <Link className="header__container" to="/">Podcaster</Link>
-      <hr />
+      <div className="header__container">
+        <Link to="/">Podcaster</Link>
+        {loading && <div className="header__loading"></div>}
+      </div>
     </>
   );
 };
 
 export default Header;
+
+
