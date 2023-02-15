@@ -8,10 +8,6 @@ describe("Main component", () => {
     const container = document.createElement('div');
     ReactDOM.render(<Main />, container);
 
-    console.log('AAAAAAAAAAAAA',container);
-    /*
-    const SearcherChipResult = container.querySelector('.header__searcher_container');
-    expect(SearcherChipResult).toBeTruthy();
-    ReactDOM.unmountComponentAtNode(container);*/
+  
   });
 });
