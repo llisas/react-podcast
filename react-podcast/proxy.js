@@ -1,9 +1,7 @@
-import { createServer } from 'cors-anywhere';
-
+const corsProxy = require('cors-anywhere');
 const host = '0.0.0.0';
 const port = 8000;
-
-createServer({
+corsProxy.createServer({
   originWhitelist: [], // Permitir a todos los dominios
   requireHeader: ['origin', 'x-requested-with'],
   removeHeaders: ['cookie', 'cookie2']
