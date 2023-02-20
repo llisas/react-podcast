@@ -9,7 +9,7 @@ Installation
     Run npm install, and make sure that you are using Node version 18.4.0.
 
     This app uses CORS, so you need to start the proxy-server in order to access the data. To do this, open a new terminal
-    in the root of the react-podcast project and type: node run proxy.
+    in the root of the react-podcast project and type: npm run proxy.
 
     To run the project in your VSC, open a terminal and type npm run dev. Remember that the previous terminal with the 
     proxy server needs to be running as well.
