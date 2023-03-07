@@ -2,16 +2,30 @@
 A podcast app using react18 over node verion 18.4.0
 
 
-Installation
 
-    Clone the develop branch.
+## Installation
 
-    Run npm install, and make sure that you are using Node version 18.4.0.
+    Clone the develop branch an run
 
-    This app uses CORS, so you need to start the proxy-server in order to access the data. To do this, open a new terminal
-    in the root of the react-podcast project and type: npm run proxy.
+```bash
+   npm install
+```
+    
+    make sure that you are using Node version 18.4.0.
 
-    To run the project in your VSC, open a terminal and type npm run dev. Remember that the previous terminal with the 
-    proxy server needs to be running as well.
+    This app uses CORS, so you need to start the proxy-server in order to access the data. To do this,
+    open a new terminal in the root of the react-podcast project and run: 
+    
+```bash
+   npm run proxy
+```
+   
+    To run the project in your VSC, open a terminal and type npm run dev. Remember that the previous
+    terminal with the proxy server needs to be running as well.
 
 Enjoy the podcast!
+
+
+## Author
+
+- [@jesuscuevas](https://https://github.com/llisas)
