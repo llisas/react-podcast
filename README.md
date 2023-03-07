@@ -5,7 +5,7 @@ A podcast app using react18 over node verion 18.4.0
 
 ## Installation
 
-    Clone the develop branch an run
+    Clone the develop branch and run
 
 ```bash
    npm install
