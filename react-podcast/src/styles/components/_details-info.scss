@@ -1,0 +1,50 @@
+//TODO mediaquerys to jump to responsive
+.details-info__container {
+  background-color: white;
+  border: 0.1em solid #cccccc;
+  border-radius: 1em;
+  box-shadow: 0.3em 0.3em 0.3em rgba(0, 0, 0, 0.3);
+  color:$text_color_base;
+  margin: 1.2em auto;
+  max-width: 22em;
+  padding: 1em;
+}
+
+.details-info__container p {
+  font-weight: normal;
+  margin: 0;
+}
+.details-info__container h4 {
+  text-align: left;
+
+}
+.details-info__description{
+  margin-top: 1em;
+  text-align: left;
+}
+
+.details-info__bold{
+  font-weight: bold;
+  margin: 1em;
+  padding: 0.3em;
+}
+
+.details-info__cursive{
+  font-style: italic;
+  margin-top: 1em;
+}
+
+.details-info__pointer{
+  cursor: pointer;
+}
+
+.details-info__container-image {
+  border-radius: 1em;
+  height: 15em;
+  padding: 3.3em;
+  width: 15em;
+}
+
+
+
+

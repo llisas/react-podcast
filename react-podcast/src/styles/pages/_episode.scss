@@ -1,0 +1,16 @@
+.episode__container {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+.episode__podcatsDetailInfo {
+  margin-left: 1.9em;
+  padding: 3.3em;
+}
+
+.episode__podcastEpisodePlayer {
+  margin-top: 1.5em;
+  padding: 3em;
+  width: 60%;
+}
